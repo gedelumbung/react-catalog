@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Loadable from 'react-loadable';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+import FrontendLayout from "./component/Layout/Frontend/Layout";
+import Loading from './component/Loading';
+
+const loadAdbleComponent = (component) => (
+  Loadable({
+    loader: component,
+    loading: Loading,
+  })
+);
+
+const AsyncHome = loadAdbleComponent(() => import("./page/Home"));
+
+const App = () => (
+  <Switch>
+    <Route exact path="/" render={() => (
+      <FrontendLayout path="" component={AsyncHome} />
+    )}/>
+  </Switch>
+);
 
 export default App;
