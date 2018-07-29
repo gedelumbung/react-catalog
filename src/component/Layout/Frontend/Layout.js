@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
+import Header from "./Header";
 
 const Layout = ({ component: Component, ...rest }) => {
   return (
@@ -7,6 +8,7 @@ const Layout = ({ component: Component, ...rest }) => {
       {...rest}
       render={matchProps => (
         <Fragment>
+          <Header/>
           <div className="wrapper">
             <div className="columns">
               <main className="container main">

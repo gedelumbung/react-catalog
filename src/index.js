@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
  * import all needed css here
  */
 import "bulma/css/bulma.css";
+import "./asset/css/custom.css";
 
 /**
  * import your own helper/component/script here
