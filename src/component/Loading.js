@@ -3,7 +3,10 @@ import React from "react";
 const Loading = () => {
   return (
     <div className="loading">
-      Loading
+      <div className="lds-ripple">
+        <div />
+        <div />
+      </div>
     </div>
   );
 };
