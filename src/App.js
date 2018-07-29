@@ -12,6 +12,7 @@ const loadAdbleComponent = (component) => (
   })
 );
 
+const AsyncNotFound = loadAdbleComponent(() => import("./page/NotFound"));
 const AsyncHome = loadAdbleComponent(() => import("./page/Home"));
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
     <Route exact path="/" render={() => (
       <FrontendLayout path="" component={AsyncHome} />
     )}/>
+    <FrontendLayout exact path="*" component={AsyncNotFound} />
   </Switch>
 );
 
