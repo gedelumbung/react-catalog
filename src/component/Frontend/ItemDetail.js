@@ -1,15 +1,30 @@
 import React from "react";
 import { currency } from "../../utils/format";
 import get from "lodash/get";
+import Slider from "react-slick";
 
 const ItemDetail = ({ product }) => {
   const category = get(product, "category.title");
   const images = get(product, "images");
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500
+  };
   return (
     <div className="card">
       <div className="card-image">
-        <figure className="image is-4by3">
-          <img src={`${product.image}`} alt="Placeholder image" />
+        <figure>
+          <Slider {...settings}>
+            {images.map((image, index) => {
+              return (
+                <div key={index}>
+                  {" "}
+                  <img src={`${image.url}`} />
+                </div>
+              );
+            })}
+          </Slider>
         </figure>
       </div>
       <div className="header">

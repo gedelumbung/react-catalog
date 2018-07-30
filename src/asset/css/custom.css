@@ -28,6 +28,9 @@
 .card {
     margin-top: 2rem;
 }
+.card-image {
+    margin-bottom: 20px;
+}
 .card-content{
     padding: 1rem;
     border-top: 1px solid #ddd;
@@ -94,4 +97,14 @@
       height: 58px;
       opacity: 0;
     }
+  }
+
+  .slick-next{
+      right: 10px!important;
+      z-index: 999;
+  }
+
+  .slick-prev{
+      left: 10px!important;
+      z-index: 999;
   }
