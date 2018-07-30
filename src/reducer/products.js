@@ -1,6 +1,6 @@
 const initialState = {
   loading: true,
-  pagination_links: [],
+  pagination: {},
   products: [],
   next_page: 1,
   is_end_page: false
@@ -18,6 +18,7 @@ export default function productsReducer(state = initialState, action) {
     let products = action.payload.data.data;
     let next_page = 2;
     const is_end_page = action.payload.data.data.length === 0 ? true : false;
+    const pagination = action.payload.data.meta.pagination
 
     if (action.meta.load_type === "append") {
       products = [...state.products, ...products];
@@ -29,6 +30,7 @@ export default function productsReducer(state = initialState, action) {
       products,
       next_page,
       is_end_page,
+      pagination,
       loading: false
     };
   }
