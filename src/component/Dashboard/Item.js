@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Item = ({ product }) => {
+const Item = ({ product, onDelete }) => {
   return (
     <tr>
       <td>{product.id}</td>
@@ -13,11 +13,9 @@ const Item = ({ product }) => {
             <i className="material-icons">edit</i> Edit
           </span>
         </Link>{" "}
-        <Link to={`/dashboard/products/delete/${product.id}`}>
-          <span className="button is-danger is-small">
-            <i className="material-icons">delete</i> Delete
-          </span>
-        </Link>
+        <span className="button is-danger is-small" onClick={onDelete(product.id)}>
+          <i className="material-icons">delete</i> Delete
+        </span>
       </td>
     </tr>
   );

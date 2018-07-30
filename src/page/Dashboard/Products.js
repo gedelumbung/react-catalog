@@ -32,6 +32,20 @@ class Products extends Component {
     };
   }
 
+  onDelete = (id) => {
+    return () => {
+      this.props.actions
+        .deleteProduct(id)
+        .then(response => {
+          alert("Product successfully deleted :)");
+          this.props.actions.getProducts(this.state.params, "first_load");
+        })
+        .catch(error => {
+          alert("Cannot delete product :(");
+        });
+    };
+  }
+
   render() {
     const { products, loading, pagination } = this.props;
     return (
@@ -59,7 +73,7 @@ class Products extends Component {
                   <tbody>
                     {products.length > 0 &&
                       products.map((product, index) => {
-                        return <Item product={product} key={index} />;
+                        return <Item product={product} key={index} onDelete={this.onDelete} />;
                       })}
                   </tbody>
                 </table>

@@ -27,3 +27,10 @@ export function storeProduct(params) {
     payload: api().post(`/products`, params)
   };
 }
+
+export function deleteProduct(id) {
+  return {
+    type: "FRONTEND/DELETE_PRODUCT",
+    payload: api().delete(`/products/${id}`)
+  };
+}
