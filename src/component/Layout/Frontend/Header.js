@@ -29,15 +29,12 @@ const Header = () => {
         </div>
       </div>
       <div className="navbar-item is-flex-touch">
-        <a className="navbar-item">
-          <i className="material-icons">explore</i>
-        </a>
-        <a className="navbar-item">
-          <i className="material-icons">favorite_border</i>
-        </a>
-        <a className="navbar-item">
-          <i className="material-icons">person_outline</i>
-        </a>
+        <Link to="/categories" className="navbar-item">
+          <i className="material-icons">favorite_border</i> Category
+        </Link>
+        <Link to="/dashboard" className="navbar-item">
+          <i className="material-icons">person_outline</i> Dashboard
+        </Link>
       </div>
     </div>
   );

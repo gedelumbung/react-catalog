@@ -1,21 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { last, get } from "lodash";
 
 const Pagination = ({ pagination, onClick }) => {
   const pages = [];
   for (var i = 0; i < pagination.last_page; i++) {
-    pages.push(i+1);
+    pages.push(i + 1);
   }
   return (
-    <nav
-      className="pagination is-small"
-      role="navigation"
-      aria-label="pagination"
-    >
+    <div className="pagination is-small">
       <ul className="pagination-list">
-      {pages.map((page, index) => {
-          const isDisabled = pagination.current_page == page ? true : false;
+        {pages.map((page, index) => {
+          const isDisabled = pagination.current_page === page ? true : false;
           return (
             <li key={index}>
               <a
@@ -29,7 +23,7 @@ const Pagination = ({ pagination, onClick }) => {
           );
         })}
       </ul>
-    </nav>
+    </div>
   );
 };
 

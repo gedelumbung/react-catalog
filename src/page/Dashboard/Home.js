@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from "react";
 
-import Header from "../../component/Layout/Dashboard/Header";
-
 class Home extends Component {
   render() {
     return (
