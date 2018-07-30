@@ -16,7 +16,7 @@ class Home extends Component {
 
   componentDidMount() {
     const { params } = this.state;
-    this.props.actions.getProducts(params);
+    this.props.actions.getProducts(params, "first_load");
     window.addEventListener('scroll', this.onScroll, false);
   }
 

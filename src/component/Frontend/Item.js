@@ -8,7 +8,7 @@ const Item = ({ product }) => {
       <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
-            <img src={`${product.image}`} alt="Placeholder image" />
+            <img src={`${product.image}`} alt={`${product.title}`} />
           </figure>
         </div>
         <div className="header">

@@ -20,7 +20,7 @@ const ItemDetail = ({ product }) => {
               return (
                 <div key={index}>
                   {" "}
-                  <img src={`${image.url}`} />
+                  <img src={`${image.url}`} alt={`${product.title}`} />
                 </div>
               );
             })}

@@ -7,24 +7,29 @@ const initialState = {
 };
 
 export default function productsReducer(state = initialState, action) {
-  if (action.type === 'FRONTEND/GET_ALL_PRODUCTS_PENDING') {
+  if (action.type === "FRONTEND/GET_ALL_PRODUCTS_PENDING") {
     return {
       ...state,
-      loading: true,
+      loading: true
     };
   }
 
-  if (action.type === 'FRONTEND/GET_ALL_PRODUCTS_FULFILLED') {
+  if (action.type === "FRONTEND/GET_ALL_PRODUCTS_FULFILLED") {
     let products = action.payload.data.data;
-    products = [...state.products, ...products];
-    const next_page = state.next_page + 1;
-    const is_end_page = (action.payload.data.data.length === 0) ? true : false;
+    let next_page = 2;
+    const is_end_page = action.payload.data.data.length === 0 ? true : false;
+
+    if (action.meta.load_type === "append") {
+      products = [...state.products, ...products];
+      next_page = state.next_page + 1;
+    }
+
     return {
       ...state,
       products,
       next_page,
       is_end_page,
-      loading: false,
+      loading: false
     };
   }
 

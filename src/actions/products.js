@@ -1,11 +1,12 @@
 import api from "../request";
 
-export function getProducts(params = "") {
+export function getProducts(params = "", load_type = "append") {
   return {
     type: "FRONTEND/GET_ALL_PRODUCTS",
     payload: api().get("/products", { params }),
     meta: {
-      params
+      params,
+      load_type
     }
   };
 }
