@@ -20,18 +20,19 @@ class CreateProduct extends Component {
       quantity: 0,
       try_outfit: false,
       available_sizes: ""
-    }
+    },
+    errors: {}
   };
 
   onChange = key => {
     return e => {
       let product = this.state.product;
       let val = e.target.value;
-      if (includes(["price", "quantity"], key)){
-        val = parseInt(val)
+      if (includes(["price", "quantity"], key)) {
+        val = parseInt(val);
       }
-      if (includes(["try_outfit"], key)){
-        val = Boolean(val)
+      if (includes(["try_outfit"], key)) {
+        val = Boolean(val);
       }
       product[key] = val;
       this.setState(product);
@@ -39,13 +40,34 @@ class CreateProduct extends Component {
   };
   onSubmit = () => {
     const params = this.state.product;
-    this.props.actions.storeProduct(params);
+    this.props.actions
+      .storeProduct(params)
+      .then(response => {
+        alert("New Product successfully created :)");
+        window.location.assign("/dashboard/products");
+      })
+      .catch(error => {
+        const errors = error.response.data.data.detail;
+        this.setState({
+          errors: errors
+        });
+      });
   };
   render() {
+    const { errors, product } = this.state;
     return (
       <Fragment>
         <div className="container is-multiline">
           <div className="column">
+            {Object.keys(errors).length > 0 && (
+              <div className="notification is-danger">
+                {Object.entries(errors).map(([key, error]) => (
+                  <div key={key}>
+                    {key} : {error}
+                  </div>
+                ))}
+              </div>
+            )}
             <ProductForm
               product={this.state.product}
               onChange={this.onChange}
