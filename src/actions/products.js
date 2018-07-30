@@ -20,3 +20,10 @@ export function getProduct(id) {
     }
   };
 }
+
+export function storeProduct(params) {
+  return {
+    type: "FRONTEND/STORE_PRODUCT",
+    payload: api().post(`/products`, params)
+  };
+}

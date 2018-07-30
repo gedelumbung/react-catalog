@@ -48,7 +48,7 @@ class Products extends Component {
                       <th>Title</th>
                       <th>Brand</th>
                       <th>
-                        <Link to={`/dashboard/products/add`}>
+                        <Link to={`/dashboard/products/create`}>
                           <span className="button is-primary is-small">
                             <i className="material-icons">note_add</i> Add New
                           </span>

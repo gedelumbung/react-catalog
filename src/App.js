@@ -18,6 +18,7 @@ const AsyncProduct = loadAdbleComponent(() => import("./page/Product"));
 
 const AsyncDashboardHome = loadAdbleComponent(() => import("./page/Dashboard/Home"));
 const AsyncDashboardProducts = loadAdbleComponent(() => import("./page/Dashboard/Products"));
+const AsyncDashboardCreateProduct = loadAdbleComponent(() => import("./page/Dashboard/CreateProduct"));
 
 const App = () => (
   <Switch>
@@ -29,6 +30,7 @@ const App = () => (
     <FrontendLayout exact path="/product/:id" component={AsyncProduct} />
     <DashboardLayout exact path="/dashboard" component={AsyncDashboardHome} />
     <DashboardLayout exact path="/dashboard/products" component={AsyncDashboardProducts} />
+    <DashboardLayout exact path="/dashboard/products/create" component={AsyncDashboardCreateProduct} />
     <FrontendLayout exact path="*" component={AsyncNotFound} />
   </Switch>
 );
