@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {currency} from "../../utils/format";
+import { currency } from "../../utils/format";
 
 const Item = ({ product }) => {
   return (
@@ -20,7 +20,8 @@ const Item = ({ product }) => {
           <div className="columns is-mobile">
             <div className="column is-6">
               <span className="button is-danger">
-                <i className="material-icons">turned_in_not</i> {currency(product.price)}
+                <i className="material-icons">turned_in_not</i>{" "}
+                {currency(product.price)}
               </span>
             </div>
             <div className="column is-6">
@@ -39,10 +40,11 @@ const Item = ({ product }) => {
                 </p>
               </div>
               <div className="column is-6">
-                {product.try_outfit && 
-                <span className="button is-light is-pulled-right is-small">
-                  <i className="material-icons">mood</i> Try Outfit
-                </span>}
+                {product.try_outfit && (
+                  <span className="button is-light is-pulled-right is-small">
+                    <i className="material-icons">mood</i> Try Outfit
+                  </span>
+                )}
               </div>
             </div>
           </div>

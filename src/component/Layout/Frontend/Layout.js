@@ -8,7 +8,7 @@ const Layout = ({ component: Component, ...rest }) => {
       {...rest}
       render={matchProps => (
         <Fragment>
-          <Header/>
+          <Header />
           <div className="wrapper">
             <div className="columns">
               <main className="container main">

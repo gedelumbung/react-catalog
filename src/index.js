@@ -16,13 +16,13 @@ import "./asset/css/custom.css";
  * import your own helper/component/script here
  */
 import App from "./App";
-import store from './store';
+import store from "./store";
 
 render(
-	<BrowserRouter>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</BrowserRouter>,
-	document.getElementById("root")
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
