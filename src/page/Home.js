@@ -17,41 +17,43 @@ class Home extends Component {
   componentDidMount() {
     const { params } = this.state;
     this.props.actions.getProducts(params, "first_load");
-    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener("scroll", this.onScroll, false);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener("scroll", this.onScroll, false);
   }
 
   onScroll = () => {
-    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && !this.props.loading && !this.props.is_end_page) {
+    if (
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
+      !this.props.loading &&
+      !this.props.is_end_page
+    ) {
       let params = this.state.params;
       params.page = this.props.next_page;
       this.setState({
         params
-      })
+      });
       this.props.actions.getProducts(this.state.params);
     }
-  }
+  };
 
-	render() {
+  render() {
     const { products, loading } = this.props;
-		return (
-			<Fragment>
+    return (
+      <Fragment>
         <div className="columns body-columns">
           <div className="column is-half is-offset-one-quarter">
             {products.map((product, index) => {
-              return (
-                <Item product={product} key={index}/>
-              );
+              return <Item product={product} key={index} />;
             })}
-            {loading && <Loading/>}
+            {loading && <Loading />}
           </div>
         </div>
-			</Fragment>
-		);
-	}
+      </Fragment>
+    );
+  }
 }
 
 Home.propTypes = {
@@ -72,4 +74,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

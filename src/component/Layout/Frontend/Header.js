@@ -6,13 +6,22 @@ const Header = () => {
     <div className="navbar is-inline-flex is-transparent">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
-          <img src="https://bulma.io/images/bulma-logo.png" width={112} height={28} alt="Bulma" />
+          <img
+            src="https://bulma.io/images/bulma-logo.png"
+            width={112}
+            height={28}
+            alt="Bulma"
+          />
         </Link>
       </div>
       <div className="navbar-menu">
         <div className="navbar-item">
           <div className="control has-icons-left">
-            <input className="input is-small has-text-centered" type="text" placeholder="search" />
+            <input
+              className="input is-small has-text-centered"
+              type="text"
+              placeholder="search"
+            />
             <span className="icon is-left is-small">
               <i className="material-icons">search</i>
             </span>
