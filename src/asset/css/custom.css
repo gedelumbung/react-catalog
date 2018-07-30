@@ -108,3 +108,7 @@
       left: 10px!important;
       z-index: 999;
   }
+
+  .dashboard{
+      margin-top: 90px;
+  }

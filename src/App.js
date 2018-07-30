@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Loadable from "react-loadable";
 
 import FrontendLayout from "./component/Layout/Frontend/Layout";
+import DashboardLayout from "./component/Layout/Dashboard/Layout";
 import Loading from "./component/Loading";
 
 const loadAdbleComponent = component =>
@@ -15,6 +16,8 @@ const AsyncNotFound = loadAdbleComponent(() => import("./page/NotFound"));
 const AsyncHome = loadAdbleComponent(() => import("./page/Home"));
 const AsyncProduct = loadAdbleComponent(() => import("./page/Product"));
 
+const AsyncDashboardHome = loadAdbleComponent(() => import("./page/Dashboard/Home"));
+
 const App = () => (
   <Switch>
     <Route
@@ -23,6 +26,7 @@ const App = () => (
       render={() => <FrontendLayout path="" component={AsyncHome} />}
     />
     <FrontendLayout exact path="/product/:id" component={AsyncProduct} />
+    <DashboardLayout exact path="/dashboard" component={AsyncDashboardHome} />
     <FrontendLayout exact path="*" component={AsyncNotFound} />
   </Switch>
 );
